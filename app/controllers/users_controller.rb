@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
     def index
         @user = User.all
+    end
+
+    def show
+        @user = User.find(params[:id])
+    end
 
     def new
         @user = User.new
@@ -14,6 +19,20 @@ class UsersController < ApplicationController
             redirect_to new_users_path
         else
             render :new, status: :unprocessable_entity
+        end
+    end
+
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = user.find(params[:id])
+
+        if @user.update(user_params)
+            redirect_to new_user_path(@user)
+        else
+            render :edit
         end
     end
 

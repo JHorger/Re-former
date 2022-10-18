@@ -31,16 +31,25 @@
     <%= submit_tag "Submit" %>
 <% end %>
 -->
+<div>
+    <%= form_with model: @user do |form| %>
+        <%= form.label "Username:" %>
+        <%= form.text_field :username, placeholder: "3-20 characters" %>
+        <br><br>
+        <%= form.label "Password:" %>
+        <%= form.password_field :password, placeholder: "********" %>
+        <br><br>
+        <%= form.label "Email:" %>
+        <%= form.email_field :email, placeholder: "example@example.com" %>
+        <br><br>
+        <%= form.submit "Submit!" %>
+    <% end %>
 
-<%= form_with model: @user do |form| %>
-    <%= form.label "Username:" %>
-    <%= form.text_field :username, placeholder: "3-20 characters" %>
-    <br><br>
-    <%= form.label "Password:" %>
-    <%= form.password_field :password, placeholder: "********" %>
-    <br><br>
-    <%= form.label "Email:" %>
-    <%= form.email_field :email, placeholder: "example@example.com" %>
-    <br><br>
-    <%= form.submit "Submit!" %>
-<% end %>
+    <div>
+        <ul>
+            <%= user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>
