@@ -5,9 +5,9 @@
         <li>
             <h2><%= user.username %></h2>
             <p><%= user.email %></p>
-            <%= link_to "Edit User", edit_user_path(@user) %>
+            <%= link_to "Edit User", edit_users_path(@user) %>
         </li>
     <% end %>
 </ul>
 
-<%= link_to "Add New User", new_user_path %>
+<%= link_to "Add New User", new_users_path %>

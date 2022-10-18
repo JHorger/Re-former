@@ -1,5 +1,5 @@
 <div>
-    <%= form_with model: @user do |form| %>
+    <%= form_for @user, html:{:class => "user_form"} do |form| %>
         <%= form.label "Username:" %>
         <%= form.text_field :username, placeholder: "3-20 characters" %>
         <br><br>
@@ -20,9 +20,10 @@
         </ul>
     </div>
 </div>
+
 <br>
 <br>
-<br>
+
 <div>
-    <%= link_to "Back to Users", users_path %>
+    <%= link_to "Back to Users", root_path %>
 </div>
