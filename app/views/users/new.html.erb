@@ -1,7 +1,7 @@
 <h1>New User</h1>
 
 <%# <%= render "form", user: @user %>
-
+<!--
 <form accept-charset="UTF-8" action="/users" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
     <label for="username">Username:</label>
@@ -15,3 +15,32 @@
     <br>
     <input type="submit" value="submit" />
 </form>
+-->
+
+<!--
+<%= form_tag("/users") do %>
+    <%= label_tag "Username" %>
+    <%= text_field_tag "Username" %>
+    <br>
+    <%= label_tag "Password" %>
+    <%= text_field_tag "Password" %>
+    <br>
+    <%= label_tag "Email" %>
+    <%= text_field_tag "Email" %>
+    <br>
+    <%= submit_tag "Submit" %>
+<% end %>
+-->
+
+<%= form_with model: @user do |form| %>
+    <%= form.label "Username:" %>
+    <%= form.text_field :username, placeholder: "3-20 characters" %>
+    <br><br>
+    <%= form.label "Password:" %>
+    <%= form.password_field :password, placeholder: "********" %>
+    <br><br>
+    <%= form.label "Email:" %>
+    <%= form.email_field :email, placeholder: "example@example.com" %>
+    <br><br>
+    <%= form.submit "Submit!" %>
+<% end %>
